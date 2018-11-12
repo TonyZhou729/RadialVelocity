@@ -3,7 +3,7 @@
 """
 Created on Wed Nov  7 21:23:45 2018
 
-@author: tonyzhou
+@author: Tony Zhou
 """
 
 import matplotlib.pyplot as plt
@@ -15,9 +15,27 @@ import astropy.units as u
 import schwimmbad
 from astropy.table import Table
 
-FILENAME = 'G60-06_KECK.vels'
+FILENAME = ''
+#The String name of the .vels file to be read in. Insert between the single quotes.
 
 def readAndGenerateData():
+    """
+    Reads a .vels data file and creates three array objects storing the data within the first three columns of the 
+    .vels file
+    
+    Parameters
+    ----------
+    None
+    
+    Returns
+    -------
+    t: list of floats
+        Stores the BMJD data
+    rv: list of Astropy.units
+        Stores the radial velocity in km/s
+    err: list of Astropy.units
+        Stores the standard deviation of the radial velocity in km/s
+    """
     names = ['jd', 'rv', 'rv_err', 'a', 'b', 'c', 'd']
     data = Table.read(FILENAME, names = names, format='ascii.basic')
     data = data.as_array()
@@ -25,9 +43,9 @@ def readAndGenerateData():
     t = []
     rv = []
     err = []
-    # Initialize three np.array objects for generating RVData.
+    # Initialize three list objects for generating RVData.
     for x in range(len(data)):
-        # Assign values in corresponding columns to individual numpy arrays.
+        # Assign values in corresponding columns to individual lists.
         t.append(data[x][0])
         rv.append(data[x][1])
         err.append(data[x][2])
