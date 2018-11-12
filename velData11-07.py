@@ -73,7 +73,7 @@ ax.set_ylim(0.75, 3.)
 ax.scatter(61.942, 1.3959, marker='o', color='#31a354', zorder=-100)
 
 fig, ax = plt.subplots(1, 1, figsize=(8,5)) # doctest: +SKIP
-t_grid = np.linspace(-10, 210, 1024)
+t_grid = np.linspace(t[0]-10, t[len(t)-1]+10, 1024)
 plot_rv_curves(samples, t_grid, rv_unit=u.km/u.s, data=data, ax=ax,
                plot_kwargs=dict(color='#888888'))
-ax.set_xlim(-5, 205)
+ax.set_xlim(t[0]-5, t[len(t)-1]+5)
