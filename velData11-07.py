@@ -43,7 +43,7 @@ params = JokerParams(P_min=8*u.day, P_max=512*u.day)
 pool = schwimmbad.MultiPool()
 joker = TheJoker(params, pool=pool)
 
-samples = joker.rejection_sample(data, n_prior_samples=10)
+samples = joker.rejection_sample(data, n_prior_samples=100000)
 
 fig, ax = plt.subplots(1, 1, figsize=(6,6)) # doctest: +SKIP
 ax.scatter(samples['P'].value, samples['K'].to(u.km/u.s).value,
