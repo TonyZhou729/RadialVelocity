@@ -67,8 +67,8 @@ ax.scatter(samples['P'].value, samples['K'].to(u.km/u.s).value,
            marker='.', color='k', alpha=0.45) # doctest: +SKIP
 ax.set_xlabel("$P$ [day]")
 ax.set_ylabel("$K$ [km/s]")
-ax.set_xlim(-5, 128)
-ax.set_ylim(0.75, 3.)
+ax.set_xlim(-10, 200)
+ax.set_ylim(0.75,12.)
 
 ax.scatter(61.942, 1.3959, marker='o', color='#31a354', zorder=-100)
 
