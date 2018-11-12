@@ -20,7 +20,6 @@ FILENAME = 'G60-06_KECK.vels'
 def readAndGenerateData():
     names = ['jd', 'rv', 'rv_err', 'a', 'b', 'c', 'd']
     data = Table.read(FILENAME, names = names, format='ascii.basic')
-    print(data)
     data = data.as_array()
     # Converts data from astropy.Table object to np.array object.
     t = []
