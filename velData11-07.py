@@ -17,6 +17,8 @@ from astropy.table import Table
 
 FILENAME = ''
 #The String name of the .vels file to be read in. Insert between the single quotes.
+SAMPLE_SIZE = 100000
+#The int number of prior samples for thejoker.
 
 def readAndGenerateData():
     """
@@ -60,7 +62,7 @@ params = JokerParams(P_min=8*u.day, P_max=512*u.day)
 pool = schwimmbad.MultiPool()
 joker = TheJoker(params, pool=pool)
 
-samples = joker.rejection_sample(data, n_prior_samples=100000)
+samples = joker.rejection_sample(data, n_prior_samples=SAMPLE_SIZE)
 
 fig, ax = plt.subplots(1, 1, figsize=(6,6)) # doctest: +SKIP
 ax.scatter(samples['P'].value, samples['K'].to(u.km/u.s).value,
